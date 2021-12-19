@@ -4,19 +4,11 @@ on: push
 
 jobs:
   constructor:
-    outputs:
-      current_branch_reusable_workflow_1: ${{ steps.constructor_step.outputs.current_branch_reusable_workflow_1 }}
+    runs-on: ubuntu-latest
     steps:
       - run: |
-          $currentRepo = "${{ github.repository }}"
-          $currentBranch = `echo ${GITHUB_REF##*/}`
-          $workflow = "$currentRepo/android/.github/workflows/action.yml@$currentBranch"
-
-          echo "::set-output name=current_branch_reusable_workflow_1::$(echo $workflow)"
+          find ./android/ -name 'action.yml' -exec cp "{}" ./github/workflows  \;
 
   android_ci_job:
-    defaults:
-      run:
-        working-directory: ./android
-
-    uses: ./android/.github/workflows/action.yml@master
+    needs: constructor
+    uses: action.yml@master
