@@ -14,7 +14,7 @@ jobs:
         run: |
           pwd
           ROOT=`pwd`
-          cp $ROOT/android/.github/workflows/action.yml $ROOT/.github/workflows/action.yml
+          cp $ROOT/android/.github/workflows/action.yml $ROOT/.github/workflows/android-action.yml
           cat $ROOT/.github/workflows/action.yml
 
   run_android_workflow:
