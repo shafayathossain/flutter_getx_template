@@ -6,7 +6,6 @@ jobs:
   copy_android_workflow:
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout the repository
         uses: actions/checkout@v2
         with:
@@ -15,4 +14,7 @@ jobs:
         run: |
           ROOT=`pwd`
           cp $ROOT/android/.github/workflows/action.yml $ROOT/.github/android-action.yml
-          ls .github
+
+  run_android_workflow:
+    needs: copy_android_workflow
+    with: shafayathossain/flutter_getx_template/.github/workflows/android-action.yml@master
