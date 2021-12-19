@@ -8,6 +8,6 @@ on:
 jobs:
   android_ci_job:
     name: Start Android CI workflow
-    uses: ./android/.github/workflows/ci-cd-workflow.yml@${GITHUB_REF##/}
-    secrets:
-      envPAT: ${{ secrets.envPAT }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./android/.github/workflows/ci-cd-workflow.yml@${GITHUB_REF##/}
