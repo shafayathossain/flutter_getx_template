@@ -4,6 +4,7 @@ on: push
 
 jobs:
   constructor:
+    runs-on: ubuntu-latest
     outputs:
       current_branch_reusable_workflow_1: ${{ steps.constructor_step.outputs.current_branch_reusable_workflow_1 }}
     steps:
@@ -15,5 +16,4 @@ jobs:
           echo "::set-output name=current_branch_reusable_workflow_1::$(echo $workflow)"
 
   android_ci_job:
-    needs: constructor
     uses: shafayathossain/flutter_getx_template/.github/workflows/action.yml@master
