@@ -1,12 +1,40 @@
-name: Distirbuted workflow tasks
+name: CI workflow
 
-on: push
-
+on:
+  workflow_call:
+    secrets:
+      envPAT:
+        required: false
 jobs:
-
-  android_ci_job:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: My first step
-        uses: ./android/.github/workflows/
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+
+      - name: Setup JDK 11
+        uses: actions/setup-java@v2
+        with:
+          distribution: "zulu"
+          java-version: 11
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+
+      - name: Install dependencies to support ruby project
+        run: |
+          bundle config --global set deploy_platform_default x86_64-linux
+          bundle install
+
+      - name: Build and distribute app
+        run: |
+          export LC_ALL=en_US.UTF-8
+          export LANG=en_US.UTF-8
