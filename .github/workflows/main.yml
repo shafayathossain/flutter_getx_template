@@ -1,13 +1,10 @@
 name: Distirbuted workflow tasks
 
-on:
-  workflow_call:
-    secrets:
-      envPAT: ${{ secrets.envPAT }}
+on: push
 
 jobs:
   android_ci_job:
     name: Start Android CI workflow
-    uses: owner/repository/android/.github/workflows/ci-cd-workflow.yml@android-ci-cd
+    uses: hasancse91/flutter_getx_template/android/.github/workflows/ci-cd-workflow.yml@android-ci-cd
     secrets:
       envPAT: ${{ secrets.envPAT }}
