@@ -1,0 +1,35 @@
+name: CI workflow
+
+on: push
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup JDK 11
+        uses: actions/setup-java@v2
+        with:
+          distribution: "zulu"
+          java-version: 11
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+
+      - name: Install dependencies to support ruby project
+        run: |
+          bundle config --global set deploy_platform_default x86_64-linux
+          bundle install
+
+      - name: Build and distribute app
+        run: |
+          export LC_ALL=en_US.UTF-8
+          export LANG=en_US.UTF-8
