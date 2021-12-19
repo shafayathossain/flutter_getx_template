@@ -12,4 +12,10 @@ jobs:
     name: Start Android CI workflow
     runs-on: ubuntu-latest
     steps:
-      - uses: ./android/.github/workflows/ci-cd-workflow.yml@${GITHUB_REF##/}
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Reuse android workflow
+        uses: ./android/.github/workflows/ci-cd-workflow.yml@${GITHUB_REF##/}
