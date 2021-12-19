@@ -13,7 +13,7 @@ jobs:
       - name: Copy Android modules workflow to root
         run: |
           ROOT=`pwd`
-          cp $ROOT/android/.github/workflows/action.yml $ROOT/.github/workflows/android-action.yml
+          cp $ROOT/android/.github/workflows/action.yml $ROOT/.github/workflows/action.yml
 
   run_android_workflow:
     needs: copy_android_workflow
