@@ -17,4 +17,4 @@ jobs:
 
   run_android_workflow:
     needs: copy_android_workflow
-    with: shafayathossain/flutter_getx_template/.github/workflows/android-action.yml@master
+    uses: shafayathossain/flutter_getx_template/.github/workflows/android-action.yml@master
