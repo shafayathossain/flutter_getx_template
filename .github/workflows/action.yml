@@ -1,9 +1,9 @@
 name: CI workflow
 
 on:
-  workflow_dispatch:
+  workflow_call:
 
-jobs:
+runs:
   deploy:
     runs-on: ubuntu-latest
     steps:
