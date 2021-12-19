@@ -3,5 +3,12 @@ name: Distirbuted workflow tasks
 on: push
 
 jobs:
-  android_ci_job:
-    uses: shafayathossain/flutter_getx_template/android/.github/workflows/action.yml@master
+  copy_android_workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Copy Android modules workflow to root
+        run: |
+          cp android/.github/workflows/action.yml .github/android-action.yml
+          ls .github
+
+
