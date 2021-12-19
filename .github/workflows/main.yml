@@ -7,6 +7,6 @@ jobs:
   android_ci_job:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: My first step
-        uses: android/.github/workflows/
+        uses: ./android/.github/workflows/
