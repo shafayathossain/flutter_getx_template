@@ -10,10 +10,6 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Copy Android modules workflow to root
-        run: |
-          pwd
-          ROOT=`pwd`
-          cp $ROOT/android/.github/workflows/action.yml $ROOT/.github/workflows/action.yml
+
 
       - uses: ./.github/workflows/action.yml
