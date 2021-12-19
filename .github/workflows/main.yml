@@ -6,7 +6,13 @@ jobs:
   copy_android_workflow:
     runs-on: ubuntu-latest
     steps:
+
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Copy Android modules workflow to root
         run: |
           ROOT=`pwd`
-          ls $ROOT/../
+          cp $ROOT/android/.github/workflows/action.yml $ROOT/.github/android-action.yml
+          ls .github
