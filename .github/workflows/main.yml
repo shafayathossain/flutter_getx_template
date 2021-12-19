@@ -9,4 +9,4 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: My first step
-        uses: ./android/.github/workflow/action
+        uses: ./android/.github/workflow
