@@ -12,6 +12,7 @@ jobs:
           fetch-depth: 0
       - name: Copy Android modules workflow to root
         run: |
+          pwd
           ROOT=`pwd`
           cp $ROOT/android/.github/workflows/action.yml $ROOT/.github/workflows/action.yml
           cat $ROOT/.github/workflows/action.yml
