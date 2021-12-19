@@ -9,4 +9,4 @@ jobs:
       - name: Copy Android modules workflow to root
         run: |
           ROOT=`pwd`
-          ls $ROOT/
+          ls $ROOT/../
