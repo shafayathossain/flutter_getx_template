@@ -3,7 +3,9 @@ name: Distirbuted workflow tasks
 on:
   push:
   workflow_call:
-    secrets: true
+    secrets:
+      envPAT:
+        required: false
 
 jobs:
   android_ci_job:
