@@ -17,5 +17,6 @@ jobs:
 
   run_android_workflow:
     needs: copy_android_workflow
+    runs-on: ubuntu-latest
     steps:
       - uses: ./.github/workflows/action.yml@master
