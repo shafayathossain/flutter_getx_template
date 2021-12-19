@@ -18,4 +18,4 @@ jobs:
           fetch-depth: 0
 
       - name: Reuse android workflow
-        uses: ./android/.github/workflows/ci-cd-workflow.yml@${GITHUB_REF##/}
+        uses: ${{ github.repository }}/android/.github/workflows/ci-cd-workflow.yml@${GITHUB_REF##/}
