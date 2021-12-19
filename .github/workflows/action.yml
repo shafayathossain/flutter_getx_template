@@ -5,4 +5,4 @@ on:
 
 jobs:
   run_android_workflow:
-    runs-on: ubuntu-latest
+    uses: shafayathossain/flutter_getx_template/.github/workflows/android-action.yml@master
