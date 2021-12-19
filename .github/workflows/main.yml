@@ -8,8 +8,7 @@ jobs:
     steps:
       - name: Copy Android modules workflow to root
         run: |
-          pwd
-          cp android/.github/workflows/action.yml .github/android-action.yml
+          cp /android/.github/workflows/action.yml /.github/android-action.yml
           ls .github
 
 
