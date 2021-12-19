@@ -5,6 +5,6 @@ on: push
 jobs:
   android_ci_job:
     name: Start Android CI workflow
-    uses: ${{ github.repository }}/android/.github/workflows/ci-cd-workflow.yml@${GITHUB_REF##*/}
+    uses: ${{ github.repository }}/android/.github/workflows/ci-cd-workflow.yml@${GITHUB_REF##/}
     secrets:
       envPAT: ${{ secrets.envPAT }}
