@@ -1,6 +1,7 @@
 name: Distirbuted workflow tasks
 
 on:
+  push:
   workflow_call:
     secrets:
       envPAT: ${{ secrets.envPAT }}
