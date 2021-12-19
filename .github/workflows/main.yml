@@ -10,6 +10,4 @@ on:
 jobs:
   android_ci_job:
     name: Start Android CI workflow
-    runs-on: ubuntu-latest
-    steps:
-      - uses: ${{ github.repository }}/android/.github/workflows/ci-cd-workflow.yml@$android-ci-cd
+    uses: ${{ github.repository }}/android/.github/workflows/ci-cd-workflow.yml@$android-ci-cd
