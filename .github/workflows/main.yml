@@ -22,4 +22,8 @@ jobs:
     needs: copy_android_workflow
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/action.yml
+      - name: Copy Android modules workflow to root
+        run: |
+          pwd
+          ROOT=`pwd`
+          ls $ROOT
