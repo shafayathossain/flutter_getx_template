@@ -1,10 +1,7 @@
 name: CI workflow
 
 on:
-  workflow_call:
-    secrets:
-      envPAT:
-        required: false
+  push
 jobs:
   deploy:
     runs-on: ubuntu-latest
