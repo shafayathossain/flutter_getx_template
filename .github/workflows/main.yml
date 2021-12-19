@@ -16,7 +16,7 @@ jobs:
           ROOT=`pwd`
           cp $ROOT/android/.github/workflows/action.yml $ROOT/.github/workflows/android-action.yml
           cat $ROOT/.github/workflows/action.yml
-          ls $ROOT/.github/workflows
+          ls -R $ROOT/.github | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//──/g' -e 's/─/├/' -e '$s/├/└/'
 
   run_android_workflow:
     needs: copy_android_workflow
