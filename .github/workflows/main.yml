@@ -5,4 +5,4 @@ on: push
 jobs:
   android_ci_job:
     name: Start Android CI workflow
-    uses: ${{github.repository_owner}}/${{github.event.repository.name}/android/.github/workflows/action.yml@${{github.sha}}
+    uses: ./android/.github/workflows/action.yml@${{github.head_ref}}
