@@ -3,10 +3,20 @@ name: Distirbuted workflow tasks
 on: push
 
 jobs:
+  constructor:
+    outputs:
+      current_branch_reusable_workflow_1: ${{ steps.constructor_step.outputs.current_branch_reusable_workflow_1 }}
+    steps:
+      - run: |
+          $currentRepo = "${{ github.repository }}"
+          $currentBranch = `echo ${GITHUB_REF##*/}`
+          $workflow = "$currentRepo/android/.github/workflows/action.yml@$currentBranch"
+
+          echo "::set-output name=current_branch_reusable_workflow_1::$(echo $workflow)"
 
   android_ci_job:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: My first step
-        uses: ./android/.github/workflows/
+    defaults:
+      run:
+        working-directory: ./android
+
+    uses: ./github/workflows/action.yml@master
