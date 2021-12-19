@@ -1,10 +1,10 @@
 name: Distirbuted workflow tasks
 
-on: push
+on: workflow_call
 
 jobs:
   android_ci_job:
     name: Start Android CI workflow
-    uses: ${{ github.repository }}/android/.github/workflows/ci-cd-workflow.yml@${GITHUB_REF##/}
+    uses: ./android/.github/workflows/ci-cd-workflow.yml@${GITHUB_REF##/}
     secrets:
       envPAT: ${{ secrets.envPAT }}
