@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
+          echo ls
           find ./android/ -name 'action.yml' -exec cp "{}" ./github/workflows  \;
 
   android_ci_job:
