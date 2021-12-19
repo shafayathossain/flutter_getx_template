@@ -10,7 +10,7 @@ jobs:
       - run: |
           $currentRepo = "${{ github.repository }}"
           $currentBranch = `echo ${GITHUB_REF##*/}`
-          $workflow = "$currentRepo/android/.github/workflows/action.yml@$currentBranch"
+          $workflow = "$currentRepo/.github/workflows/action.yml@$currentBranch"
 
           echo "::set-output name=current_branch_reusable_workflow_1::$(echo $workflow)"
 
