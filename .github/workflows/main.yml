@@ -17,4 +17,5 @@ jobs:
 
   run_android_workflow:
     needs: copy_android_workflow
-    uses: ./.github/workflows/action.yml@master
+    steps:
+      - uses: ./.github/workflows/action.yml@master
