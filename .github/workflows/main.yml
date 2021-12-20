@@ -4,12 +4,4 @@ on: push
 
 jobs:
   copy_android_workflow:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-
-      - uses: shafayathossain/flutter_getx_template/.github/workflows/action.yml@master
+    uses: shafayathossain/flutter_getx_template/.github/workflows/action.yml@master
