@@ -42,7 +42,7 @@ jobs:
         run: |
           KEYSTORE_FILE_PATH="${GITHUB_WORKSPACE}"/android/certificates
           mkdir "${KEYSTORE_FILE_PATH}"
-          echo KEYSTORE_STRING | base64 -di > "${{ env.keystore_string }}"/keystore.jks
+          echo ${{ env.keystore_string }} | base64 -di > "${KEYSTORE_FILE_PATH}"/keystore.jks
 
       - name: Setup JDK 11
         uses: actions/setup-java@v2
