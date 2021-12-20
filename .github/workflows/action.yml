@@ -5,6 +5,15 @@ on:
     secrets:
       FIREBASE_APP_DISTRIBUTION_KEY_BASE_64:
         required: true
+      PLAY_STORE_APP_DISTRIBUTION_KEY_BASE_64:
+        required: true
+      KEYSTORE_BASE_64:
+        required: true
+      KEYSTORE_ALIAS:
+        required: true
+      KEYSTORE_PASSWORD:
+        required: true
+
 
 jobs:
   deploy:
@@ -23,13 +32,17 @@ jobs:
           KEYSTORE_ALIAS: ${{ secrets.KEYSTORE_ALIAS }}
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
         run:
-          echo $FIREBASE_APP_DISTRIBUTION_KEY_STRING
+          echo "firebase_app_distribution_key_string=$FIREBASE_APP_DISTRIBUTION_KEY_STRING" >> $GITHUB_ENV
+          echo "play_store_app_distribution_key_string=$PLAY_STORE_APP_DISTRIBUTION_KEY_STRING" >> $GITHUB_ENV
+          echo "keystore_string=$KEYSTORE_STRING" >> $GITHUB_ENV
+          echo "keystore_alias=$KEYSTORE_ALIAS" >> $GITHUB_ENV
+          echo "keystore_password=$KEYSTORE_PASSWORD" >> $GITHUB_ENV
 
       - name: Decode keystore
         run: |
           KEYSTORE_FILE_PATH="${GITHUB_WORKSPACE}"/android/certificates
           mkdir "${KEYSTORE_FILE_PATH}"
-          echo KEYSTORE_STRING | base64 -di > "${KEYSTORE_FILE_PATH}"/keystore.jks
+          echo KEYSTORE_STRING | base64 -di > "${{ env.keystore_string }}"/keystore.jks
 
       - name: Setup JDK 11
         uses: actions/setup-java@v2

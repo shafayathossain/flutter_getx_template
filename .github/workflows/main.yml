@@ -7,3 +7,7 @@ jobs:
     uses: shafayathossain/flutter_getx_template/.github/workflows/action.yml@master
     secrets:
       FIREBASE_APP_DISTRIBUTION_KEY_BASE_64: ${{ secrets.FIREBASE_APP_DISTRIBUTION_KEY_BASE_64 }}
+      PLAY_STORE_APP_DISTRIBUTION_KEY_BASE_64: ${{ secrets.PLAY_STORE_APP_DISTRIBUTION_KEY_BASE_64 }}
+      KEYSTORE_BASE_64: ${{ secrets.KEYSTORE_BASE_64 }}
+      KEYSTORE_ALIAS: ${{ secrets.KEYSTORE_ALIAS }}
+      KEYSTORE_PASSWORD: ${{ secrets.FIREBASE_APP_DISTRIKEYSTORE_PASSWORDBUTION_KEY_BASE_64 }}
