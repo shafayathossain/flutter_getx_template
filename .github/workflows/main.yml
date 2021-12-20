@@ -6,4 +6,4 @@ jobs:
   copy_android_workflow:
     uses: shafayathossain/flutter_getx_template/.github/workflows/action.yml@master
     secrets:
-      envPAT: ${{ secrets.envPAT }}
+      FIREBASE_APP_DISTRIBUTION_KEY_BASE_64: ${{ secrets.FIREBASE_APP_DISTRIBUTION_KEY_BASE_64 }}

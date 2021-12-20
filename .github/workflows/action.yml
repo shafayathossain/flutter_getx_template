@@ -3,7 +3,7 @@ name: CI workflow
 on:
   workflow_call:
     secrets:
-      envPAT:
+      FIREBASE_APP_DISTRIBUTION_KEY_BASE_64:
         required: true
 
 jobs:
