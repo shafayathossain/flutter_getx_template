@@ -44,6 +44,17 @@ jobs:
           mkdir "${KEYSTORE_FILE_PATH}"
           echo ${{ env.keystore_string }} | base64 -di > "${KEYSTORE_FILE_PATH}"/keystore.jks
 
+      - name: Decode Firebase app distribution key
+        run: |
+          KEY_FILE_PATH="${GITHUB_WORKSPACE}"/android/certificates
+          echo ${{ env.firebase_app_distribution_key_string }} | base64 -di > "${KEYSTORE_FILE_PATH}"/firebase-app-distribution-key.json
+
+      - name: Decode play store key
+        run: |
+          KEY_FILE_PATH="${GITHUB_WORKSPACE}"/android/certificates
+          echo ${{ env.play_store_app_distribution_key_string }} | base64 -di > "${KEYSTORE_FILE_PATH}"/playstore-app-distribution-key.json
+          ls "${GITHUB_WORKSPACE}"/android/certificates
+
       - name: Setup JDK 11
         uses: actions/setup-java@v2
         with:
