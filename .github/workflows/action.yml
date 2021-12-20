@@ -2,8 +2,9 @@ name: CI workflow
 
 on:
   workflow_call:
-    envPAT:
-      required: true
+    secrets:
+      envPAT:
+        required: true
 
 jobs:
   deploy:
