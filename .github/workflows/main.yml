@@ -5,3 +5,5 @@ on: push
 jobs:
   copy_android_workflow:
     uses: shafayathossain/flutter_getx_template/.github/workflows/action.yml@master
+    secrets:
+      envPAT: ${{ secrets.envPAT }}
