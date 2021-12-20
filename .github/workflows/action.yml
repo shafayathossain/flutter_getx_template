@@ -28,6 +28,7 @@ jobs:
           ruby-version: 2.7
 
       - name: Install dependencies to support ruby project
+        working-directory: ./android
         run: |
           bundle config --global set deploy_platform_default x86_64-linux
           bundle install
