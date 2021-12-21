@@ -75,6 +75,11 @@ jobs:
           bundle config --global set deploy_platform_default x86_64-linux
           bundle install
 
+      - name: Create temporary local.properties file
+        working-directory: ./android
+        run: |
+          touch local.properties
+
       - name: Build and distribute app
         working-directory: ./android
         run: |
