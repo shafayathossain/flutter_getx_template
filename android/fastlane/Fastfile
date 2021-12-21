@@ -14,7 +14,8 @@ before_all do
   FIREBASE_KEY_PATH = Dir.pwd + "/../certificates/firebase-app-distribution-key.json"
   PLAYSTORE_KEY_PATH = Dir.pwd + "/../certificates/playstore-app-distribution-key.json"
   BUNDLE_FILE_PATH = Dir.pwd + "/../app/build/outputs/bundle/prodRelease/app-prod-release.aab"
-  puts ENV
+  puts ENV['KEYSTORE_PASSWORD']
+
 end
 
 # Run Unit test
