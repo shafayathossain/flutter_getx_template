@@ -76,6 +76,7 @@ jobs:
           bundle install
 
       - name: Build and distribute app
+        working-directory: ./android
         run: |
           export LC_ALL=en_US.UTF-8
           export LANG=en_US.UTF-8
