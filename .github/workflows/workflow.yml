@@ -76,6 +76,11 @@ jobs:
           FILE_PATH=app
           echo $GOOGLE_SERVICE_KEY_BASE_64 | base64 -di > "${FILE_PATH}"/google-services.json
 
+      - name: Install dart
+        run: |
+          apt-get intall dart
+          apt-get install flutter
+
       - name: Build and distribute app
         working-directory: android
         env:
@@ -85,4 +90,5 @@ jobs:
           export LC_ALL=en_US.UTF-8
           export LANG=en_US.UTF-8
           gradle wrapper
+          flutter pub get
           bundle exec fastlane build
