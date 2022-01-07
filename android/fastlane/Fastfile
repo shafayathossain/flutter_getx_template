@@ -13,7 +13,7 @@ before_all do
   KEYSTORE_PATH = Dir.pwd + "/../certificates/keystore.jks"
   FIREBASE_KEY_PATH = Dir.pwd + "/../certificates/firebase-app-distribution-key.json"
   PLAYSTORE_KEY_PATH = Dir.pwd + "/../certificates/playstore-app-distribution-key.json"
-  BUNDLE_FILE_PATH = Dir.pwd + "/../app/build/outputs/bundle/release/app-prod-release.aab"
+  BUNDLE_FILE_PATH = Dir.pwd + "/../app/build/outputs/bundle/prodRelease/app-prod-release.aab"
   puts ENV['KEYSTORE_PASSWORD']
 
 end
@@ -46,6 +46,7 @@ end
 lane :build do
     gradle(
         task: "bundle",
+        flavor: "prod",
         build_type: "Release",
         properties: {
             "android.injected.signing.store.file" => KEYSTORE_PATH,
@@ -68,6 +69,4 @@ lane :distribute_to_firebase do
 end
 # Distribute to play console
 # Push updated code to github with release tag
-
-
 
