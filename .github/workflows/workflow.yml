@@ -83,6 +83,10 @@ jobs:
         run: |
           sudo snap install flutter --classic
 
+      - name: Pub get install
+        run: |
+          - flutter pub get
+
       - name: Build and distribute app
         working-directory: android
         env:
@@ -91,6 +95,5 @@ jobs:
         run: |
           export LC_ALL=en_US.UTF-8
           export LANG=en_US.UTF-8
-          flutter pub get
           gradle wrapper
           bundle exec fastlane build
