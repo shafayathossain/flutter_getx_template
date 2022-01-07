@@ -78,7 +78,7 @@ jobs:
 
       - name: Install dart
         run: |
-          apt-get intall dart
+          apt-get install dart
           apt-get install flutter
 
       - name: Build and distribute app
