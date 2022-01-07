@@ -47,7 +47,7 @@ jobs:
         env:
           FIREBASE_APP_DISTRIBUTION_KEY_STRING: ${{secrets.FIREBASE_APP_DISTRIBUTION_KEY_BASE_64}}
         run: |
-          FILE_PATH="${GITHUB_WORKSPACE}"/certificates
+          FILE_PATH=certificates
           mkdir "${FILE_PATH}"
           echo $FIREBASE_APP_DISTRIBUTION_KEY_STRING | base64 -di > "${FILE_PATH}"/firebase-app-distribution-key.json
 
@@ -56,7 +56,7 @@ jobs:
         env:
           PLAY_STORE_KEY_STRING: ${{secrets.FIREBASE_APP_DISTRIBUTION_KEY_BASE_64}}
         run: |
-          FILE_PATH="${GITHUB_WORKSPACE}"/certificates
+          FILE_PATH=certificates
           echo $PLAY_STORE_KEY_STRING | base64 -di > "${FILE_PATH}"/playstore-app-distribution-key.json
 
       - name: Decode and create keystore file
