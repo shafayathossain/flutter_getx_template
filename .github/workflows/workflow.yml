@@ -81,7 +81,7 @@ jobs:
 
       - name: Install flutter
         run: |
-          sudo apt-get install flutter
+          sudo snap install flutter --classic
 
       - name: Build and distribute app
         working-directory: android
