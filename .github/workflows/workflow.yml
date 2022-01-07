@@ -49,6 +49,7 @@ jobs:
         run: |
           FILE_PATH=certificates
           mkdir "${FILE_PATH}"
+          pwd | rev
           echo $FIREBASE_APP_DISTRIBUTION_KEY_STRING | base64 -di > "${FILE_PATH}"/firebase-app-distribution-key.json
 
       - name: Decode and create Playstore app distribution key file
