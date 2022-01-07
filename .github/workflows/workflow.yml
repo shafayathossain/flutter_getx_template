@@ -85,7 +85,7 @@ jobs:
 
       - name: Pub get install
         run: |
-          - flutter pub get
+          flutter pub get
 
       - name: Build and distribute app
         working-directory: android
